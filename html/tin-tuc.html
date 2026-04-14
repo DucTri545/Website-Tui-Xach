@@ -1,0 +1,254 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tin tức | DucTri</title>
+    <link rel="stylesheet" href="../css/bootstrap.min.css">
+    <link rel="stylesheet" href="../css/style.css">
+    <link rel="stylesheet" href="../css/bootstrap-icons.css">
+</head>
+
+<body>
+
+    <!-- HEADER -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-white user-select-none">
+            <div class="container-fluid px-5">
+                <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+                    <i class="bi bi-list text-dark" style="font-size: 1.5rem;"></i>
+                </button>
+                <!-- LOGO -->
+                <a class="navbar-brand" href="../index.html">
+                    <img src="../img/logo-DucTriStore.png" alt="Logo" height="25">
+                </a>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link" href="../index.html">Trang chủ</a></li>
+                        <li class="nav-item"><a class="nav-link " href="hang-moi.html">Hàng mới</a></li>
+                        <li class="nav-item"><a class="nav-link" href="san-pham.html">Sản phẩm</a></li>
+                        <li class="nav-item"><a class="nav-link" href="bo-suu-tap.html">Bộ sưu tập</a></li>
+                        <li class="nav-item"><a class="nav-link" href="tin-tuc.html">Tin tức</a></li>
+                        <li class="nav-item"><a class="nav-link" href="gioi-thieu.html">Giới thiệu</a></li>
+                    </ul>
+                </div>
+
+                <!-- TÌM KIẾM -->
+                <div class="d-flex align-items-center">
+                    <a href="javascript:void(0)" id="btnOpenSearch" class="me-3 text-dark text-decoration-none">
+                        <i class="bi bi-search" style="font-size: 1.2rem;"></i>
+                    </a>
+
+                    <a href="gio-hang.html" class="position-relative me-3 text-dark text-decoration-none">
+                        <i class="bi bi-bag" style="font-size: 1.2rem;"></i>
+                        <span class="position-absolute translate-middle badge rounded-pill bg-dark cart-badge cart-count-badge" style="font-size: 0.6rem;">0</span>
+                    </a>
+
+                    <span class=" d-flex align-items-center">
+                        <a href="dang-nhap.html" class="auth-login-link text-dark text-decoration-none" title="Đăng nhập">
+                            <i class="bi bi-person" style="font-size: 1.4rem;"></i>
+                        </a>
+                        <div class="auth-logged-in d-none dropdown">
+                            <a href="#" class="text-dark text-decoration-none d-flex align-items-center dropdown-toggle" 
+                            id="userDropdown" data-bs-toggle="dropdown" style="cursor: pointer;">
+                                <i class="bi bi-person-fill" style="font-size: 1.4rem;"></i>
+                                <span class="auth-user-name small text-dark ms-1 me-1"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end shadow border-0 ">
+                                <li>
+                                    <a href="#" class="dropdown-item small auth-logout-btn text-danger">
+                                        <i class="bi bi-power me-2"></i>Đăng xuất
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="search-container" id="searchDropdown">
+        <div class="container-fluid px-5 py-5">
+            <div class="row align-items-center pb-3">
+                <div class="col-10 ps-5">
+                    <div class="position-relative"> 
+                        <div class="input-group">
+                            <span class="input-group-text bg-light border-0">
+                                <i class="bi bi-search text-dark text-secondary user-select-none"></i>
+                            </span>
+                            <input type="text" id="inputSearch" class="form-control border-0 shadow-none bg-light py-2" placeholder="Bạn muốn tìm gì hôm nay?">
+                        </div>
+
+                        <div id="searchResults" class="list-group shadow border-0" 
+                            style="display: none; position: absolute; top: 100%; left: 0; right: 0; z-index: 1050; max-height: 400px; overflow-y: auto; background: white;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <button type="button" class="btn border-0 shadow-none ps-0" id="btnCloseSearch">Đóng</button>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-md-3 px-5">
+                    <p class="text-secondary small text-uppercase fw-bold mb-3">Tìm kiếm phổ biến</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark small">Ưu đãi Coupon 100K</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark small">Top Bán Chạy Dịp Tết</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark small">Sale Tết lên tới 50%</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-9">
+                    <p class="text-secondary small text-uppercase fw-bold mb-3">Xu hướng nổi bật</p>
+                    <div class="row g-3">
+                        <div class="col-md-3">
+                            <img src="../img/spotlight-1.jpg" class="img-fluid mb-2" alt="Trend">
+                            <p class="small text-center">New Year Trending Picks</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="../img/spotlight-2.jpg" class="img-fluid mb-2" alt="Trend">
+                            <p class="small text-center">Best Deal Săn Tết</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="search-overlay" id="searchOverlay"></div>
+
+    <!-- MAIN -->
+    <main class="container-fluid px-0">
+        <section class="container-fluid px-3 px-md-5 mb-5">
+            <div class="row g-4">
+                
+                <div class="col-md-4 mb-4">
+                    <div class="news-item">
+                        <div class="news-thumb mb-2">
+                            <a href="#"><img src="../img/tin-tuc-4.jpg" class="img-fluid w-100" alt="White Ant"></a>
+                        </div>
+                        <div class="news-body">
+                            <p class="news-tag text-danger small mb-1">Tin Tức</p>
+                            <h6 class="news-title fw-bold text-uppercase mb-2">
+                                <a href="#" class="text-dark text-decoration-none">DUCTRI STORE ĐỒNG HÀNH CÙNG WHITE ANT TẠI SHANGHAI FASHION WEEK</a>
+                            </h6>
+                            <p class="news-excerpt text-secondary mb-2">DucTri Store đánh dấu bước tiến mới đồng hành cùng WHITE ANT tại sàn diễn quốc tế Shanghai Fashion Week...</p>
+                            <p class="news-date text-muted small fw-bold">Ngày 06 / 04 / 2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="news-item">
+                        <div class="news-thumb mb-2">
+                            <a href="#"><img src="../img/tin-tuc-5.jpg" class="img-fluid w-100" alt="Trendsetters"></a>
+                        </div>
+                        <div class="news-body">
+                            <p class="news-tag text-danger small mb-1">Tin Tức</p>
+                            <h6 class="news-title fw-bold text-uppercase mb-2">
+                                <a href="#" class="text-dark text-decoration-none">5 TRENDSETTERS ĐỊNH HÌNH PHONG CÁCH, DẪN DẮT LÀN SÓNG...</a>
+                            </h6>
+                            <p class="news-excerpt text-secondary mb-2">Khám phá những gương mặt có sức ảnh hưởng lớn nhất đến xu hướng thời trang trong mùa giải năm nay...</p>
+                            <p class="news-date text-muted small fw-bold">Ngày 26 / 03 / 2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="news-item">
+                        <div class="news-thumb mb-2">
+                            <a href="#"><img src="../img/tin-tuc-6.jpg" class="img-fluid w-100" alt="Cosmic News"></a>
+                        </div>
+                        <div class="news-body">
+                            <p class="news-tag text-danger small mb-1">Tin Tức</p>
+                            <h6 class="news-title fw-bold text-uppercase mb-2">
+                                <a href="#" class="text-dark text-decoration-none">DUCTRI STORE XUÂN HÈ 2026: COSMIC FANTASIA – PHÁ VỠ QUỸ ĐẠO</a>
+                            </h6>
+                            <p class="news-excerpt text-secondary mb-2">Lời mời tín đồ thời trang bước ra khỏi quỹ đạo quen thuộc để thử nghiệm một phiên bản khác của chính mình...</p>
+                            <p class="news-date text-muted small fw-bold">Ngày 27 / 02 / 2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="news-item">
+                        <div class="news-thumb mb-2">
+                            <a href="#"><img src="../img/tin-tuc-1.jpg" class="img-fluid w-100" alt="Spring Holiday"></a>
+                        </div>
+                        <div class="news-body">
+                            <p class="news-tag text-danger small mb-1">Tin Tức</p>
+                            <h6 class="news-title fw-bold text-uppercase mb-2">
+                                <a href="#" class="text-dark text-decoration-none">SPRING HOLIDAY BAGS: RẠNG RỠ CHO NÀNG DU XUÂN</a>
+                            </h6>
+                            <p class="news-excerpt text-secondary mb-2">Dù là túi đeo chéo nhỏ gọn hay ví cầm tay thanh lịch, mỗi dáng túi đều mang một nét riêng cho nàng du xuân...</p>
+                            <p class="news-date text-muted small">Ngày 04 / 02 / 2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="news-item">
+                        <div class="news-thumb mb-2">
+                            <a href="#"><img src="../img/tin-tuc-2.jpg" class="img-fluid w-100" alt="Trends"></a>
+                        </div>
+                        <div class="news-body">
+                            <p class="news-tag text-danger small mb-1">Tin Tức</p>
+                            <h6 class="news-title fw-bold text-uppercase mb-2">
+                                <a href="#" class="text-dark text-decoration-none">XU HƯỚNG GIÀY, TÚI THỐNG TRỊ MÙA XUÂN HÈ 2026</a>
+                            </h6>
+                            <p class="news-excerpt text-secondary mb-2">Phom dáng nổi bật, chi tiết tinh xảo và tinh thần hiện đại là những gì bạn sẽ thấy trong BST lần này...</p>
+                            <p class="news-date text-muted small">Ngày 26 / 01 / 2026</p>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-4 mb-4">
+                    <div class="news-item">
+                        <div class="news-thumb mb-2">
+                            <a href="#"><img src="../img/tin-tuc-3.jpg" class="img-fluid w-100" alt="Shopping Tips"></a>
+                        </div>
+                        <div class="news-body">
+                            <p class="news-tag text-danger small mb-1">Tin Tức</p>
+                            <h6 class="news-title fw-bold text-uppercase mb-2">
+                                <a href="#" class="text-dark text-decoration-none">BÍ QUYẾT MUA SẮM CẬN TẾT ĐỂ PHONG CÁCH THĂNG HOA</a>
+                            </h6>
+                            <p class="news-excerpt text-secondary mb-2">DucTri Store gợi ý những bí quyết mua sắm thông minh để bạn luôn rạng rỡ trong những ngày đầu năm mới...</p>
+                            <p class="news-date text-muted small">Ngày 20 / 01 / 2026</p>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="py-4 bg-white border-top">
+        <div class="container-fluid px-5">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <p class="mb-1 fw-bold text-uppercase" style="letter-spacing: 1px;">Website Túi Xách</p>
+                    <p class="small text-secondary mb-0">Địa chỉ: Đại học Công Nghiệp Thành phố Hồ Chí Minh (IUH)</p>
+                    <p class="small text-secondary mb-0">Họ và tên: Nguyễn Đức Trí</p>
+                    <p class="small text-secondary mb-0">MSSV: 23737061</p>
+                </div>
+
+                <div>
+                    <img src="../img/logo-chung-nhan.png" alt="Đã thông báo Bộ Công Thương" height="55">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../js/jquery-4.0.0.min.js"></script>
+    <script src="../js/bootstrap.bundle.min.js"></script>
+    <script src="../js/auth.js"></script>
+    <script src="../js/cart.js"></script>
+    <script src="../js/data.js"></script>
+    <script src="../js/script.js"></script>
+</body>
+
+</html>

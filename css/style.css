@@ -1,0 +1,316 @@
+/* ========== VASCARA - STYLES ========== */
+/* Header & Nav */
+.navbar-nav .nav-link {
+    color: black !important;
+    /* Bắt buộc chữ trên menu có màu đen */
+    font-size: large;
+    /* Kích thước chữ menu mức lớn */
+    margin-right: 20px;
+    /* Khoảng cách giữa các mục menu là 20px */
+}
+
+.cart-badge {
+    top: 5px !important;
+    /* Vị trí số thông báo cách mép trên icon 5px */
+    right: -15px;
+    /* Vị trí số thông báo lệch về bên phải 15px */
+    font-size: 8px !important;
+    /* Chữ số trong vòng tròn siêu nhỏ (8px) */
+    padding: 1.5px 3.5px !important;
+    /* Khoảng đệm trong vòng tròn số */
+    display: flex;
+    /* Sử dụng flexbox để căn giữa số */
+    align-items: center;
+    /* Căn giữa số theo chiều dọc */
+    justify-content: center;
+    /* Căn giữa số theo chiều ngang */
+}
+
+.custom-banner img {
+    cursor: pointer;
+    /* Hiện hình bàn tay khi rê chuột vào ảnh banner */
+}
+
+main {
+    margin-top: 70px;
+    /* Đẩy nội dung xuống để không bị header che mất */
+}
+
+header {
+    position: fixed;
+    /* Cố định header ở đỉnh màn hình khi cuộn trang */
+    top: 0;
+    /* Dán sát mép trên */
+    width: 100%;
+    /* Header kéo dài hết chiều ngang */
+    z-index: 1000;
+    /* Đảm bảo header luôn nằm đè lên các thành phần khác */
+    transition: transform 0.2s ease-in-out;
+    /* Hiệu ứng trượt mượt khi ẩn/hiện header */
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    /* Tạo bóng đổ nhẹ dưới chân header */
+    background-color: #fff;
+    /* Nền màu trắng */
+}
+
+.header-hidden {
+    transform: translateY(-100%);
+}
+
+
+/* ========== PRODUCTS ========== */
+
+.product-img-hover {
+    cursor: pointer;
+    /* Hiện bàn tay khi rê chuột vào vùng sản phẩm */
+}
+
+.product-img-hover .img-secondary {
+    opacity: 0;
+    /* Mặc định ẩn tấm ảnh thứ 2 */
+    transition: opacity 0.2s ease-in-out;
+    /* Hiệu ứng hiện ảnh mượt trong 0.2 giây */
+    z-index: 2;
+    /* Nằm trên tấm ảnh chính */
+}
+
+.product-img-hover:hover .img-secondary {
+    opacity: 1;
+    /* Hiện ảnh thứ 2 lên khi di chuột vào */
+}
+
+
+/* ========== SEARCH ========== */
+
+.search-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background-color: #fff;
+    z-index: 2000;
+    /* Đảm bảo nằm trên cùng */
+    transform: translateY(-100%);
+    /* Giấu lên phía trên */
+    transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+    /* Hiệu ứng trượt mượt */
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.05);
+}
+
+.search-container.active {
+    transform: translateY(0);
+}
+
+.search-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+    z-index: 1999;
+    opacity: 0;
+    visibility: hidden;
+    transition: 0.3s;
+}
+
+.search-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.search-container input::placeholder {
+    color: #ccc;
+    font-weight: 300;
+}
+
+#btnLoadMore {
+    letter-spacing: 1px;
+    transition: 0.3s;
+}
+
+.product-name {
+    line-height: 1.2;
+}
+
+.product-price {
+    font-size: 0.9rem;
+    color: #333;
+}
+
+
+/* ========== AUTH PAGE ========== */
+
+.auth-tab-login.nav-link,
+.auth-tab-register.nav-link {
+    border: none !important;
+    border-bottom: 2px solid transparent !important;
+    color: #999;
+}
+
+.auth-tab-login.nav-link.active,
+.auth-tab-register.nav-link.active {
+    border-bottom-color: #000 !important;
+    color: #000;
+    font-weight: 600;
+}
+
+
+/* Icon mật khẩu - căn giữa ô input */
+
+.auth-password-wrap {
+    position: relative;
+}
+
+.auth-password-wrap .form-control {
+    padding-right: 40px;
+}
+
+.auth-password-wrap .btn-toggle-pwd {
+    position: absolute;
+    right: 10px;
+    top: 50%;
+    transform: translateY(-50%);
+    padding: 4px 8px;
+}
+
+
+/* ========== CART ========== */
+
+.cart-img-wrapper {
+    width: 70px;
+    height: 90px;
+    overflow: hidden;
+    background: #f8f8f8;
+}
+
+.cart-img-wrapper img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.quantity-group {
+    width: fit-content;
+    margin: 0 auto;
+}
+
+.input-qty:focus {
+    box-shadow: none;
+}
+
+.product-name-cart {
+    font-size: 0.9rem;
+}
+
+.italic {
+    font-style: italic;
+}
+
+
+/* ========== LIGHTBOX ========== */
+
+.lightbox-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.95);
+    z-index: 3000;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s, visibility 0.3s;
+}
+
+.lightbox-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.lightbox-content {
+    max-width: 90%;
+    max-height: 90%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.lightbox-content img {
+    max-width: 100%;
+    max-height: 90vh;
+    object-fit: contain;
+}
+
+.lightbox-close {
+    position: absolute;
+    top: 20px;
+    right: 25px;
+    background: transparent;
+    border: none;
+    color: #fff;
+    font-size: 1.8rem;
+    cursor: pointer;
+    padding: 8px;
+    z-index: 3010;
+    transition: opacity 0.2s;
+}
+
+.lightbox-close:hover {
+    opacity: 0.7;
+}
+
+.lightbox-prev,
+.lightbox-next {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: rgba(255, 255, 255, 0.2);
+    border: none;
+    color: #fff;
+    font-size: 2.5rem;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    z-index: 3010;
+    transition: background 0.2s;
+}
+
+.lightbox-prev:hover,
+.lightbox-next:hover {
+    background: rgba(255, 255, 255, 0.35);
+}
+
+.lightbox-prev {
+    left: 20px;
+}
+
+.lightbox-next {
+    right: 20px;
+}
+
+#khu-vuc-hinh-anh img.lightbox-trigger {
+    cursor: pointer;
+}
+
+/* ========== CUSTOM BORDER INPUTS ========== */
+
+/* 1. Các ô nhập liệu ở trang đăng nhập/đăng ký */
+#tabLogin .form-control, 
+#tabRegister .form-control {
+    border: 1px solid #ddd !important;   /* Viền xám mờ mặc định */
+    border-radius: 0;                   /* Nếu muốn vuông vức giống Vascara */
+}
+
+/* 2. Khi nhấn vào để gõ (Focus) */
+#tabLogin .form-control:focus, 
+#tabRegister .form-control:focus {
+    border-color: #000 !important;       /* Viền chuyển sang màu đen */
+}
