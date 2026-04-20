@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Trang chủ | DucTri</title>
+    
+    <link rel="stylesheet" href="css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/bootstrap-icons.css">
+
+    <script src="js/jquery-4.0.0.min.js"></script>
+    <script src="js/bootstrap.bundle.min.js"></script>
+    <script src="js/main.js"></script>
+</head>
+
+<body>
+
+    <header>
+
+        <nav class="navbar navbar-expand-lg navbar-light bg-white user-select-none">
+            <div class="container-fluid px-5">
+
+                <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
+                    data-bs-target="#navbarNav">
+                    <i class="bi bi-list text-dark" style="font-size: 1.5rem;"></i>
+                </button>
+
+                <a class="navbar-brand" href="index.html">
+                    <img src="img/logo-DucTriStore.png" alt="Logo" height="25px">
+                </a>
+
+                <div class="collapse navbar-collapse" id="navbarNav">
+                    <ul class="navbar-nav mx-auto">
+                        <li class="nav-item"><a class="nav-link" href="index.html">Trang chủ</a></li>
+                        <li class="nav-item"><a class="nav-link" href="html/hang-moi.html">Hàng mới</a></li>
+                        <li class="nav-item"><a class="nav-link" href="html/san-pham.html">Sản phẩm</a></li>
+                        <li class="nav-item"><a class="nav-link" href="html/bo-suu-tap.html">Bộ sưu tập</a></li>
+                        <li class="nav-item"><a class="nav-link" href="html/tin-tuc.html">Tin tức</a></li>
+                        <li class="nav-item"><a class="nav-link" href="html/gioi-thieu.html">Giới thiệu</a></li>
+                    </ul>
+                </div>
+
+                <div class="d-flex align-items-center">
+                    <a href="javascript:void(0)" id="btnOpenSearch" class="me-3 text-dark text-decoration-none">
+                        <i class="bi bi-search" style="font-size: 1.2rem;"></i>
+                    </a>
+
+                    <a href="html/gio-hang.html" class="position-relative me-3 text-dark text-decoration-none">
+                        <i class="bi bi-bag" style="font-size: 1.2rem;"></i>
+                        <span
+                            class="position-absolute translate-middle badge rounded-pill bg-dark cart-badge cart-count-badge"
+                            style="font-size: 0.6rem;">0</span>
+                    </a>
+
+                    <span class=" d-flex align-items-center">
+                        <a href="html/dang-nhap.html" class="auth-login-link text-dark text-decoration-none"
+                            title="Đăng nhập">
+                            <i class="bi bi-person" style="font-size: 1.4rem;"></i>
+                        </a>
+                        <div class="auth-logged-in d-none dropdown">
+                            <a href="#" class="text-dark text-decoration-none d-flex align-items-center dropdown-toggle"
+                                id="userDropdown" data-bs-toggle="dropdown" style="cursor: pointer;">
+                                <i class="bi bi-person-fill" style="font-size: 1.4rem;"></i>
+                                <span class="auth-user-name small text-dark ms-1 me-1"></span>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end shadow border-0 ">
+                                <li>
+                                    <a href="#" class="dropdown-item small auth-logout-btn text-danger">
+                                        <i class="bi bi-power me-2"></i>Đăng xuất
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                    </span>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <div class="search-container" id="searchDropdown">
+        <div class="container-fluid px-5 py-5">
+            <div class="row align-items-center pb-3">
+                <div class="col-10 ps-5">
+                    <div class="position-relative">
+                        <div class="input-group">
+                            <span class="input-group-text bg-light border-0">
+                                <i class="bi bi-search text-dark text-secondary user-select-none"></i>
+                            </span>
+                            <input type="text" id="inputSearch" class="form-control border-0 shadow-none bg-light py-2"
+                                placeholder="Bạn muốn tìm gì hôm nay?">
+                        </div>
+
+                        <div id="searchResults" class="list-group shadow border-0"
+                            style="display: none; position: absolute; top: 100%; left: 0; right: 0; z-index: 1050; max-height: 400px; overflow-y: auto; background: white;">
+                        </div>
+                    </div>
+                </div>
+                <div class="col-2">
+                    <button type="button" class="btn border-0 shadow-none ps-0" id="btnCloseSearch">Đóng</button>
+                </div>
+            </div>
+
+            <div class="row mt-5">
+                <div class="col-md-3 px-5">
+                    <p class="text-secondary small text-uppercase fw-bold mb-3">Tìm kiếm phổ biến</p>
+                    <ul class="list-unstyled">
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark small">Ưu đãi Coupon 100K</a>
+                        </li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark small">Top Bán Chạy Dịp
+                                Tết</a></li>
+                        <li class="mb-2"><a href="#" class="text-decoration-none text-dark small">Sale Tết lên tới
+                                50%</a></li>
+                    </ul>
+                </div>
+                <div class="col-md-9">
+                    <p class="text-secondary small text-uppercase fw-bold mb-3">Xu hướng nổi bật</p>
+                    <div class="row g-3">
+                        <div class="col-md-3">
+                            <img src="img/spotlight-1.jpg" class="img-fluid mb-2" alt="Trend">
+                            <p class="small text-center">New Year Trending Picks</p>
+                        </div>
+                        <div class="col-md-3">
+                            <img src="img/spotlight-2.jpg" class="img-fluid mb-2" alt="Trend">
+                            <p class="small text-center">Best Deal Săn Tết</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="search-overlay" id="searchOverlay"></div>
+
+    <main>
+        <section id="mainBanner" class="carousel slide custom-banner container-fluid px-5" data-bs-ride="carousel">
+
+            <div class="carousel-inner user-select-none">
+                <div class="carousel-item active" data-bs-interval="3000">
+                    <img src="img/banner-1.jpg" class="d-block w-100" alt="Banner 1">
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="img/banner-2.jpg" class="d-block w-100" alt="Banner 2">
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="img/banner-3.jpg" class="d-block w-100" alt="Banner 3">
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="img/banner-4.jpg" class="d-block w-100" alt="Banner 4">
+                </div>
+                <div class="carousel-item" data-bs-interval="3000">
+                    <img src="img/banner-5.jpg" class="d-block w-100" alt="Banner 5">
+                </div>
+            </div>
+
+            <button class="carousel-control-prev" type="button" data-bs-target="#mainBanner" data-bs-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-bs-target="#mainBanner" data-bs-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </section>
+
+        <section class="container-fluid px-5 my-5">
+            <div class="row align-items-center">
+                <div class="col-md-3 mb-4 mb-md-0">
+                    <div class="content-left">
+                        <h4>Cảm hứng mới</h4>
+                        <p class="mb-4">Những thiết kế ra đời từ dòng chảy bất tận</p>
+                        <a href="html/hang-moi.html"
+                            class="btn btn-outline-dark shadow-none rounded-0 px-5 py-2  btn-xem-them">Xem thêm</a>
+                    </div>
+                </div>
+
+                <div class="col-md-9">
+                    <div class="row g-3">
+                        <div class="col-6 col-lg-3">
+                            <div class="product-item">
+                                <a href="html/chi-tiet.html?id=sp01" class="text-decoration-none text-dark">
+                                    <div
+                                        class="product-img-hover mb-2 position-relative overflow-hidden user-select-none">
+                                        <img src="img/tui-deo-vai-hinh-thang-don-sac-1.jpg" class="img-fluid w-100"
+                                            alt="Túi đeo vai hình thang đơn sắc">
+                                        <img src="img/tui-deo-vai-hinh-thang-don-sac-2.jpg"
+                                            class="img-fluid w-100 img-secondary position-absolute top-0 start-0 h-100"
+                                            alt="Túi đeo vai hình thang đơn sắc">
+                                    </div>
+                                    <p class="product-name mb-1">Túi đeo vai hình thang đơn sắc</p>
+                                    <span>1.225.000đ</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-lg-3">
+                            <div class="product-item">
+                                <a href="html/chi-tiet.html?id=sp03" class="text-decoration-none text-dark">
+                                    <div
+                                        class="product-img-hover mb-2 position-relative overflow-hidden user-select-none">
+                                        <img src="img/tui-mini-xach-tay-nhan-charm-hoa-hong-1.jpg"
+                                            class="img-fluid w-100" alt="Túi mini xách tay nhấn charm hoa hồng">
+                                        <img src="img/tui-mini-xach-tay-nhan-charm-hoa-hong-2.jpg"
+                                            class="img-fluid w-100 img-secondary position-absolute top-0 start-0 h-100"
+                                            alt="Túi mini xách tay nhấn charm hoa hồng">
+                                    </div>
+                                    <p class="product-name mb-1">Túi mini xách tay nhấn charm hoa hồng</p>
+                                    <span>1.175.000đ</span>
+                                </a>
+                            </div>
+                        </div>
+
+                        <div class="col-6 col-lg-3">
+                            <div class="product-item">
+                                <a href="html/chi-tiet.html?id=sp04" class="text-decoration-none text-dark">
+                                    <div
+                                        class="product-img-hover mb-2 position-relative overflow-hidden user-select-none">
+                                        <img src="img/tui-xach-tay-van-ca-sau-1.jpg" class="img-fluid w-100"
+                                            alt="Túi xách tay vân cá sấu nhấn khóa kiểu">
+                                        <img src="img/tui-xach-tay-van-ca-sau-2.jpg"
+                                            class="img-fluid w-100 img-secondary position-absolute top-0 start-0 h-100"
+                                            alt="Túi xách tay vân cá sấu nhấn khóa kiểu">
+                                    </div>
+                                    <p class="product-name mb-1">Túi xách tay vân cá sấu nhấn khóa kiểu</p>
+                                    <span>1.245.000đ</span>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-6 col-lg-3">
+                            <div class="product-item">
+                                <a href="html/chi-tiet.html?id=sp02" class="text-decoration-none text-dark">
+                                    <div
+                                        class="product-img-hover mb-2 position-relative overflow-hidden user-select-none">
+                                        <img src="img/tui-deo-vai-nhan-khoa-xoay-kim-loai-1.jpg" class="img-fluid w-100"
+                                            alt="Túi đeo vai da thật phối khoá xoay kim loại">
+                                        <img src="img/tui-deo-vai-nhan-khoa-xoay-kim-loai-2.jpg"
+                                            class="img-fluid w-100 img-secondary position-absolute top-0 start-0 h-100"
+                                            alt="Túi đeo vai da thật phối khoá xoay kim loại">
+                                    </div>
+                                    <p class="product-name mb-1">Túi đeo vai da thật phối khoá xoay kim loại</p>
+                                    <span>2.245.000đ</span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="spotlight-section py-4 bg-light">
+            <div class="container-fluid px-5">
+                <div class="text-center mb-4">
+                    <h4 class="mb-2">Spotlight</h4>
+                    <p class="text-secondary small">Đồng hành cùng người yêu thời trang</p>
+                </div>
+
+                <div class="row g-3">
+                    <div class="col-6 col-md-3">
+                        <div class="spotlight-item">
+                            <img src="img/spotlight-1.jpg" class="img-fluid w-100" alt="Spotlight 1">
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="spotlight-item">
+                            <img src="img/spotlight-2.jpg" class="img-fluid w-100" alt="Spotlight 2">
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="spotlight-item">
+                            <img src="img/spotlight-3.jpg" class="img-fluid w-100" alt="Spotlight 3">
+                        </div>
+                    </div>
+                    <div class="col-6 col-md-3">
+                        <div class="spotlight-item">
+                            <img src="img/spotlight-4.jpg" class="img-fluid w-100" alt="Spotlight 4">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="py-4 bg-white border-top">
+        <div class="container-fluid px-5">
+            <div class="d-flex justify-content-between align-items-center">
+                <div>
+                    <p class="mb-1 fw-bold text-uppercase" style="letter-spacing: 1px;">Website Túi Xách</p>
+                    <p class="small text-secondary mb-0">Địa chỉ: Đại học Công Nghiệp Thành phố Hồ Chí Minh (IUH)</p>
+                    <p class="small text-secondary mb-0">Họ và tên: Nguyễn Đức Trí</p>
+                    <p class="small text-secondary mb-0">MSSV: 23737061</p>
+                </div>
+
+                <div>
+                    <img src="img/logo-chung-nhan.png" alt="Đã thông báo Bộ Công Thương" height="55">
+                </div>
+            </div>
+        </div>
+    </footer>
+
+</body>
+
+</html>
