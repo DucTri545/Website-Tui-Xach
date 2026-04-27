@@ -8,7 +8,7 @@ const KEY_DANH_SACH_NGUOI_DUNG_CU = "ductri_danh_sach_nguoi_dung";
 const KHOA_GIO_HANG_CU = "ductri_gio_hang";
 const KHOA_LICH_SU_DON_HANG_CU = "ductri_lich_su_don_hang";
 
-// ===== DỮ LIỆU SẢN PHẨM =====
+// DỮ LIỆU SẢN PHẨM
 const danhSachSanPham = [
     { id: "sp01", ten: "Túi đeo vai hình thang đơn sắc", gia: 1225000, album: ["img/tui-xach-01-1.jpg", "img/tui-xach-01-2.jpg"], mau: "Trắng", laHangMoi: true, moTa: "Chất liệu da tổng hợp cao cấp, thiết kế hình thang đơn sắc thanh lịch." },
     { id: "sp02", ten: "Túi đeo vai da thật phối khoá xoay", gia: 2245000, album: ["img/tui-xach-02-1.jpg", "img/tui-xach-02-2.jpg"], mau: "Đỏ", laHangMoi: true, moTa: "Dòng sản phẩm da thật cao cấp, điểm nhấn là khóa xoay kim loại sang trọng." },
@@ -57,7 +57,7 @@ const danhSachSanPham = [
     { id: "sp45", ten: "Túi xách tay hình thang kiểu tối giản", gia: 2295000, album: ["img/tui-xach-45-1.jpg", "img/tui-xach-45-2.jpg"], mau: "Be", laHangMoi: true, moTa: "Phom hình thang tối giản, phù hợp phong cách thanh lịch và sử dụng linh hoạt mỗi ngày." }
 ];
 
-// ===== DỮ LIỆU TIN TỨC =====
+// DỮ LIỆU TIN TỨC
 const danhSachTinTuc = [
     { id: "tt01", tieuDe: "DUCTRI STORE ĐỒNG HÀNH CÙNG WHITE ANT TẠI SHANGHAI FASHION WEEK", moTa: "DucTri Store đánh dấu bước tiến mới đồng hành cùng WHITE ANT tại sàn diễn quốc tế Shanghai Fashion Week...", ngay: "Ngày 06 / 04 / 2026", hinh: "img/anh-023.jpg" },
     { id: "tt02", tieuDe: "5 TRENDSETTERS ĐỊNH HÌNH PHONG CÁCH, DẪN DẮT LÀN SÓNG...", moTa: "Khám phá những gương mặt có sức ảnh hưởng lớn nhất đến xu hướng thời trang trong mùa giải năm nay...", ngay: "Ngày 26 / 03 / 2026", hinh: "img/anh-024.jpg" },
@@ -67,7 +67,7 @@ const danhSachTinTuc = [
     { id: "tt06", tieuDe: "BÍ QUYẾT MUA SẮM CẬN TẾT ĐỂ PHONG CÁCH THĂNG HOA", moTa: "DucTri Store gợi ý những bí quyết mua sắm thông minh để bạn luôn rạng rỡ trong những ngày đầu năm mới...", ngay: "Ngày 20 / 01 / 2026", hinh: "img/anh-022.jpg" }
 ];
 
-// ===== HÀM DÙNG CHUNG =====
+// HÀM DÙNG CHUNG
 function laTrangCon() {
     return window.location.pathname.includes("/html/");
 }
@@ -113,7 +113,7 @@ function chuyenDuLieuKhoaCu() {
     });
 }
 
-// ===== ĐĂNG NHẬP / ĐĂNG KÝ =====
+// ĐĂNG NHẬP / ĐĂNG KÝ
 function layDanhSachNguoiDung() {
     return layDuLieuJson(KEY_DANH_SACH_NGUOI_DUNG, {});
 }
@@ -169,7 +169,7 @@ function capNhatTrangThaiDangNhap() {
     }
 }
 
-// ===== GIỎ HÀNG =====
+// GIỎ HÀNG
 function layGioHang() {
     return layDuLieuJson(KEY_GIO_HANG, []);
 }
@@ -207,7 +207,7 @@ function xoaKhoiGioHang(idSanPham) {
     luuGioHang(gioHangMoi);
 }
 
-// ===== HIỂN THỊ SẢN PHẨM =====
+// HIỂN THỊ SẢN PHẨM
 function taoTheSanPham(sanPham, an = false) {
     const tienTo = tienToDuongDan();
     return `
@@ -275,7 +275,7 @@ function khoiTaoDanhSachSanPham() {
         return soThuTu >= 1 && soThuTu <= 16;
     });
 
-    // ===== FILTER + SORT =====
+    // BỘ LỌC
     function locTheoGia(listProduct, mucGia) {
         if (mucGia === "duoi-500k") {
             return listProduct.filter((sp) => sp.gia < 500000);
@@ -504,7 +504,7 @@ function khoiTaoGioHang() {
     veGioHang();
 }
 
-// ===== THANH TOÁN =====
+// THANH TOÁN
 function khoiTaoThanhToan() {
     const formThanhToan = $("#checkoutForm");
     if (!formThanhToan.length) return;
@@ -694,19 +694,9 @@ function khoiTaoLichSuThanhToan() {
     khuVucLichSu.html(html);
 }
 
-function themLienKetSitemapVaoMenu() {
-    const duongDanSitemap = laTrangCon() ? "sitemap.html" : "html/sitemap.html";
-    $(".navbar-nav").each(function () {
-        const menu = $(this);
-        if (menu.find("a[href$='sitemap.html']").length) return;
-        menu.append(`<li class="nav-item"><a class="nav-link" href="${duongDanSitemap}">Sitemap</a></li>`);
-    });
-}
-
-// ===== KHỞI TẠO TRANG =====
+// KHỞI TẠO TRANG
 $(document).ready(function () {
     chuyenDuLieuKhoaCu();
-    themLienKetSitemapVaoMenu();
     capNhatSoLuongGioHang();
     capNhatTrangThaiDangNhap();
     khoiTaoTimKiem();
