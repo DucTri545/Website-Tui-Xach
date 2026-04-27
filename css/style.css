@@ -1,3 +1,4 @@
+/* NAV */
 .navbar-nav .nav-link {
     color: black !important;
     font-size: large;
@@ -14,6 +15,7 @@
     justify-content: center;
 }
 
+/* HEADER */
 header {
     position: fixed;
     top: 0;
@@ -28,6 +30,7 @@ header {
     transform: translateY(-100%);
 }
 
+/* MAIN */
 main {
     margin-top: 70px;
 }
@@ -36,7 +39,7 @@ main {
     cursor: pointer;
 }
 
-/* PRODUCTS */
+/* PRODUCT */
 .product-img-hover {
     cursor: pointer;
 }
@@ -105,7 +108,7 @@ main {
     font-weight: 300;
 }
 
-/* AUTH PAGE */
+/* FORM */
 .auth-tab-login.nav-link,
 .auth-tab-register.nav-link {
     border: none !important;
@@ -176,6 +179,11 @@ main {
 
 .italic {
     font-style: italic;
+}
+
+/* FOOTER */
+footer {
+    background-color: #fff;
 }
 
 /* LIGHTBOX */

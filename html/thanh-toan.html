@@ -15,8 +15,9 @@
 </head>
 
 <body>
-
+    <!-- HEADER -->
     <header>
+        <!-- NAV -->
         <nav class="navbar navbar-expand-lg navbar-light bg-white user-select-none">
             <div class="container-fluid px-5">
                 <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse"
@@ -129,6 +130,7 @@
 
     <div class="search-overlay" id="searchOverlay"></div>
 
+    <!-- MAIN -->
     <main class="py-4">
         <div class="container">
             <form id="checkoutForm">
@@ -141,23 +143,27 @@
                             <div class="row g-3">
                                 <div class="col-12">
                                     <label class="form-label small text-secondary">Họ và tên *</label>
-                                    <input type="text" class="form-control shadow-none" placeholder="Nhập họ và tên"
-                                        required>
+                                    <input type="text" id="checkoutHoTen" class="form-control shadow-none"
+                                        placeholder="Nhập họ và tên" required>
+                                    <small class="text-danger d-none" id="loiHoTen"></small>
                                 </div>
                                 <div class="col-md-7">
                                     <label class="form-label small text-secondary">Email *</label>
-                                    <input type="email" class="form-control shadow-none" placeholder="Nhập email"
-                                        required>
+                                    <input type="email" id="checkoutEmail" class="form-control shadow-none"
+                                        placeholder="Nhập email" required>
+                                    <small class="text-danger d-none" id="loiEmail"></small>
                                 </div>
                                 <div class="col-md-5">
                                     <label class="form-label small text-secondary">Số điện thoại *</label>
-                                    <input type="tel" class="form-control shadow-none" placeholder="Nhập số điện thoại"
-                                        required>
+                                    <input type="tel" id="checkoutSoDienThoai" class="form-control shadow-none"
+                                        placeholder="Nhập số điện thoại" required>
+                                    <small class="text-danger d-none" id="loiSoDienThoai"></small>
                                 </div>
                                 <div class="col-12">
                                     <label class="form-label small text-secondary">Địa chỉ chi tiết *</label>
-                                    <input type="text" class="form-control shadow-none"
+                                    <input type="text" id="checkoutDiaChi" class="form-control shadow-none"
                                         placeholder="Nhập địa chỉ giao hàng" required>
+                                    <small class="text-danger d-none" id="loiDiaChi"></small>
                                 </div>
                             </div>
 
@@ -229,6 +235,7 @@
         </div>
     </main>
 
+    <!-- FOOTER -->
     <footer class="py-4 bg-white border-top">
         <div class="container-fluid px-5">
             <div class="d-flex justify-content-between align-items-center">

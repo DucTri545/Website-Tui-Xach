@@ -8,7 +8,7 @@ const KEY_DANH_SACH_NGUOI_DUNG_CU = "ductri_danh_sach_nguoi_dung";
 const KHOA_GIO_HANG_CU = "ductri_gio_hang";
 const KHOA_LICH_SU_DON_HANG_CU = "ductri_lich_su_don_hang";
 
-// dữ liệu sản phẩm
+// ===== DỮ LIỆU SẢN PHẨM =====
 const danhSachSanPham = [
     { id: "sp01", ten: "Túi đeo vai hình thang đơn sắc", gia: 1225000, album: ["img/tui-deo-vai-hinh-thang-don-sac-1.jpg", "img/tui-deo-vai-hinh-thang-don-sac-2.jpg"], mau: "Trắng", laHangMoi: true, moTa: "Chất liệu da tổng hợp cao cấp, thiết kế hình thang đơn sắc thanh lịch." },
     { id: "sp02", ten: "Túi đeo vai da thật phối khoá xoay", gia: 2245000, album: ["img/tui-deo-vai-nhan-khoa-xoay-kim-loai-1.jpg", "img/tui-deo-vai-nhan-khoa-xoay-kim-loai-2.jpg"], mau: "Đỏ", laHangMoi: true, moTa: "Dòng sản phẩm da thật cao cấp, điểm nhấn là khóa xoay kim loại sang trọng." },
@@ -28,7 +28,7 @@ const danhSachSanPham = [
     { id: "sp16", ten: "Túi xách quai đôi phong cách giản tiện", gia: 1225000, album: ["img/tui-xach-quai-doi-phong-cach-gian-tien-thanh-lich-1.jpg", "img/tui-xach-quai-doi-phong-cach-gian-tien-thanh-lich-2.jpg"], mau: "Kem", laHangMoi: true, moTa: "Thiết kế tối giản nhưng vẫn giữ được nét thanh lịch cần có." }
 ];
 
-// dữ liệu danh sách tin tức
+// ===== DỮ LIỆU TIN TỨC =====
 const danhSachTinTuc = [
     { id: "tt01", tieuDe: "DUCTRI STORE ĐỒNG HÀNH CÙNG WHITE ANT TẠI SHANGHAI FASHION WEEK", moTa: "DucTri Store đánh dấu bước tiến mới đồng hành cùng WHITE ANT tại sàn diễn quốc tế Shanghai Fashion Week...", ngay: "Ngày 06 / 04 / 2026", hinh: "img/tin-tuc-4.jpg" },
     { id: "tt02", tieuDe: "5 TRENDSETTERS ĐỊNH HÌNH PHONG CÁCH, DẪN DẮT LÀN SÓNG...", moTa: "Khám phá những gương mặt có sức ảnh hưởng lớn nhất đến xu hướng thời trang trong mùa giải năm nay...", ngay: "Ngày 26 / 03 / 2026", hinh: "img/tin-tuc-5.jpg" },
@@ -38,7 +38,7 @@ const danhSachTinTuc = [
     { id: "tt06", tieuDe: "BÍ QUYẾT MUA SẮM CẬN TẾT ĐỂ PHONG CÁCH THĂNG HOA", moTa: "DucTri Store gợi ý những bí quyết mua sắm thông minh để bạn luôn rạng rỡ trong những ngày đầu năm mới...", ngay: "Ngày 20 / 01 / 2026", hinh: "img/tin-tuc-3.jpg" }
 ];
 
-// các hàm
+// ===== HÀM DÙNG CHUNG =====
 function laTrangCon() {
     return window.location.pathname.includes("/html/");
 }
@@ -84,7 +84,7 @@ function chuyenDuLieuKhoaCu() {
     });
 }
 
-// các hàm xử lý người dùng và đăng nhập
+// ===== ĐĂNG NHẬP =====
 function layDanhSachNguoiDung() {
     return layDuLieuJson(KEY_DANH_SACH_NGUOI_DUNG, {});
 }
@@ -140,7 +140,7 @@ function capNhatTrangThaiDangNhap() {
     }
 }
 
-// các hàm xử lý giỏ hàng
+// ===== GIỎ HÀNG =====
 function layGioHang() {
     return layDuLieuJson(KEY_GIO_HANG, []);
 }
@@ -178,7 +178,7 @@ function xoaKhoiGioHang(idSanPham) {
     luuGioHang(gioHangMoi);
 }
 
-// các hàm giao diện
+// ===== SẢN PHẨM =====
 function taoTheSanPham(sanPham, an = false) {
     const tienTo = tienToDuongDan();
     return `
@@ -406,6 +406,7 @@ function khoiTaoGioHang() {
     veGioHang();
 }
 
+// ===== THANH TOÁN =====
 function khoiTaoThanhToan() {
     const formThanhToan = $("#checkoutForm");
     if (!formThanhToan.length) return;
@@ -430,6 +431,74 @@ function khoiTaoThanhToan() {
     }).join("") || "<p class='small text-secondary'>Giỏ hàng đang trống.</p>");
     $(".summary-subtotal, .summary-total").text(dinhDangTien(tongTienDonHang));
 
+    const truongHoTen = $("#checkoutHoTen");
+    const truongEmail = $("#checkoutEmail");
+    const truongSoDienThoai = $("#checkoutSoDienThoai");
+    const truongDiaChi = $("#checkoutDiaChi");
+
+    function hienThiLoi(selector, thongBao) {
+        const vungLoi = $(selector);
+        if (!thongBao) {
+            vungLoi.text("").addClass("d-none");
+            return;
+        }
+        vungLoi.text(thongBao).removeClass("d-none");
+    }
+
+    function kiemTraFormThanhToan() {
+        const hoTen = (truongHoTen.val() || "").trim();
+        const email = (truongEmail.val() || "").trim();
+        const soDienThoai = (truongSoDienThoai.val() || "").trim();
+        const diaChi = (truongDiaChi.val() || "").trim();
+
+        let hopLe = true;
+
+        if (!hoTen) {
+            hienThiLoi("#loiHoTen", "Vui lòng nhập họ và tên.");
+            hopLe = false;
+        } else if (hoTen.length < 3) {
+            hienThiLoi("#loiHoTen", "Họ và tên phải có ít nhất 3 ký tự.");
+            hopLe = false;
+        } else {
+            hienThiLoi("#loiHoTen", "");
+        }
+
+        if (!soDienThoai) {
+            hienThiLoi("#loiSoDienThoai", "Vui lòng nhập số điện thoại.");
+            hopLe = false;
+        } else if (!/^\d+$/.test(soDienThoai)) {
+            hienThiLoi("#loiSoDienThoai", "Số điện thoại chỉ được chứa chữ số.");
+            hopLe = false;
+        } else if (soDienThoai.length < 9 || soDienThoai.length > 11) {
+            hienThiLoi("#loiSoDienThoai", "Số điện thoại phải từ 9 đến 11 số.");
+            hopLe = false;
+        } else {
+            hienThiLoi("#loiSoDienThoai", "");
+        }
+
+        if (!email) {
+            hienThiLoi("#loiEmail", "Vui lòng nhập email.");
+            hopLe = false;
+        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
+            hienThiLoi("#loiEmail", "Email không đúng định dạng.");
+            hopLe = false;
+        } else {
+            hienThiLoi("#loiEmail", "");
+        }
+
+        if (!diaChi) {
+            hienThiLoi("#loiDiaChi", "Vui lòng nhập địa chỉ.");
+            hopLe = false;
+        } else {
+            hienThiLoi("#loiDiaChi", "");
+        }
+
+        return {
+            hopLe,
+            duLieu: { hoTen, email, soDienThoai, diaChi }
+        };
+    }
+
     formThanhToan.on("submit", function (e) {
         e.preventDefault();
         const gioHangHienTai = layGioHang();
@@ -439,31 +508,12 @@ function khoiTaoThanhToan() {
             return;
         }
 
-        const hoTen = formThanhToan.find('input[type="text"]').eq(0).val()?.trim();
-        const email = formThanhToan.find('input[type="email"]').val()?.trim();
-        const soDienThoai = formThanhToan.find('input[type="tel"]').val()?.trim();
-        const diaChi = formThanhToan.find('input[type="text"]').eq(1).val()?.trim();
-
-        if (!hoTen || hoTen.split(" ").length < 2) {
-            alert("Vui lòng nhập đầy đủ họ và tên (ít nhất 2 từ).");
+        const ketQuaKiemTra = kiemTraFormThanhToan();
+        if (!ketQuaKiemTra.hopLe) {
             return;
         }
 
-        if (!/^\d{10}$/.test(soDienThoai)) {
-            alert("Số điện thoại không hợp lệ. Vui lòng nhập đúng 10 chữ số.");
-            return;
-        }
-
-        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-        if (!emailRegex.test(email)) {
-            alert("Email không đúng định dạng.");
-            return;
-        }
-
-        if (!diaChi || diaChi.length < 10) {
-            alert("Vui lòng nhập địa chỉ giao hàng chi tiết hơn.");
-            return;
-        }
+        const { hoTen, email, soDienThoai, diaChi } = ketQuaKiemTra.duLieu;
 
         const lichSu = layDuLieuJson(KEY_LICH_SU_DON_HANG, []);
         const tongTien = gioHangHienTai.reduce((tong, item) => tong + (item.gia * item.soLuong), 0);
