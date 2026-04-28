@@ -140,15 +140,15 @@ function dangXuat() {
 }
 
 function kiemTraDangKy(soDienThoai, hoTen, matKhau) {
-    if (!/^(03|05|07|08|09)\d{8}$/.test(soDienThoai)) 
+    if (!/^(03|05|07|08|09)\d{8}$/.test(soDienThoai))
         return "Số điện thoại không hợp lệ. Bắt đầu ((03|05|07|08|09)";
 
-    if (!/^[A-ZÀ-Ỹ][a-zà-ỹ]*(\s[A-ZÀ-Ỹ][a-zà-ỹ]*)+$/.test(hoTen.trim())) 
+    if (!/^[A-ZÀ-Ỹ][a-zà-ỹ]*(\s[A-ZÀ-Ỹ][a-zà-ỹ]*)+$/.test(hoTen.trim()))
         return "Họ tên phải viết hoa chữ cái đầu mỗi từ và có ít nhất 2 từ.";
 
-    if (!/^[A-Z](?=.*[a-z])(?=.*\d)(?=.*[@.$#!%*?&_\-])\S{7,}$/.test(matKhau)) 
+    if (!/^[A-Z](?=.*[a-z])(?=.*\d)(?=.*[@.$#!%*?&_\-])\S{7,}$/.test(matKhau))
         return "Mật khẩu tối thiểu 8 ký tự, bắt đầu bằng chữ hoa, đủ chữ thường, số và ký tự đặc biệt.";
-    
+
     return "";
 }
 
@@ -565,24 +565,23 @@ function khoiTaoThanhToan() {
             hienThiLoi("#loiHoTen", "");
         }
 
+        const regexSDT = /^(03|05|07|08|09)\d{8}$/;
         if (!soDienThoai) {
             hienThiLoi("#loiSoDienThoai", "Vui lòng nhập số điện thoại.");
             hopLe = false;
-        } else if (!/^\d+$/.test(soDienThoai)) {
-            hienThiLoi("#loiSoDienThoai", "Số điện thoại chỉ được chứa chữ số.");
-            hopLe = false;
-        } else if (soDienThoai.length < 9 || soDienThoai.length > 11) {
-            hienThiLoi("#loiSoDienThoai", "Số điện thoại phải từ 9 đến 11 số.");
+        } else if (!regexSDT.test(soDienThoai)) {
+            hienThiLoi("#loiSoDienThoai", "Số điện thoại phải bắt đầu bằng 03,05,07,08,09 và đủ 10 chữ số.");
             hopLe = false;
         } else {
             hienThiLoi("#loiSoDienThoai", "");
         }
 
+        const regexEmail = /^[^\s@]+@[^\s@]+\.com$/;
         if (!email) {
             hienThiLoi("#loiEmail", "Vui lòng nhập email.");
             hopLe = false;
-        } else if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) {
-            hienThiLoi("#loiEmail", "Email không đúng định dạng.");
+        } else if (!regexEmail.test(email)) {
+            hienThiLoi("#loiEmail", "Email không đúng định dạng (phải có đuôi .com).");
             hopLe = false;
         } else {
             hienThiLoi("#loiEmail", "");
@@ -665,6 +664,7 @@ function khoiTaoTinTuc() {
     }
 }
 
+// LƯU DỮ LIỆU THANH TOÁN
 function khoiTaoLichSuThanhToan() {
     const khuVucLichSu = $("#lich-su-thanh-toan");
     if (!khuVucLichSu.length) return;
