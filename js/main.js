@@ -140,11 +140,15 @@ function dangXuat() {
 }
 
 function kiemTraDangKy(soDienThoai, hoTen, matKhau) {
-    if (!/^\d{10}$/.test(soDienThoai)) return "Số điện thoại phải gồm 10 chữ số.";
-    if (!hoTen.trim()) return "Vui lòng nhập họ tên.";
-    if (!/^[A-Z].{5,}$/.test(matKhau) || !/[a-z]/.test(matKhau) || !/\d/.test(matKhau) || !/[@.$#!%*?&_\-]/.test(matKhau)) {
-        return "Mật khẩu tối thiểu 6 ký tự, bắt đầu bằng chữ hoa, có chữ thường, số và ký tự đặc biệt.";
-    }
+    if (!/^(03|05|07|08|09)\d{8}$/.test(soDienThoai)) 
+        return "Số điện thoại không hợp lệ. Bắt đầu ((03|05|07|08|09)";
+
+    if (!/^[A-ZÀ-Ỹ][a-zà-ỹ]*(\s[A-ZÀ-Ỹ][a-zà-ỹ]*)+$/.test(hoTen.trim())) 
+        return "Họ tên phải viết hoa chữ cái đầu mỗi từ và có ít nhất 2 từ.";
+
+    if (!/^[A-Z](?=.*[a-z])(?=.*\d)(?=.*[@.$#!%*?&_\-])\S{7,}$/.test(matKhau)) 
+        return "Mật khẩu tối thiểu 8 ký tự, bắt đầu bằng chữ hoa, đủ chữ thường, số và ký tự đặc biệt.";
+    
     return "";
 }
 
